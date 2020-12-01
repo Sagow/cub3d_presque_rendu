@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 17:52:50 by marina            #+#    #+#             */
-/*   Updated: 2020/12/01 15:20:09 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:34:40 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -232,7 +232,7 @@ void				init_cub3d(t_cub3d *cub3d);
 t_pixel				texture(t_case wall, double y, t_text *text);
 void				draw_pixel(int x, int y, t_pixel colour, t_cub3d *cub3d);
 void				draw_col(t_cub3d *cub3d, t_case wall, int i);
-t_text 				*get_text(t_case wall, t_cub3d *cub3d);
+t_text				*get_text(t_case wall, t_cub3d *cub3d);
 
 void				save(t_cub3d *cub3d);
 
