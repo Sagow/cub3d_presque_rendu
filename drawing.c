@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:34:43 by marina            #+#    #+#             */
-/*   Updated: 2020/11/27 19:38:20 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:27:41 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_pixel	skin_pixel(t_cub3d *cub3d, double ray, double y)
 	* cub3d->sprite->image->width + (int)(x * cub3d->sprite->image->width))]);
 }
 
-void	draw_or_not(double rad, t_cub3d *cub3d, int i , double ray)
+void	draw_or_not(double rad, t_cub3d *cub3d, int i, double ray)
 {
 	int			j;
 	double		h;

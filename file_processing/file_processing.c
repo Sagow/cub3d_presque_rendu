@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 13:19:48 by marina            #+#    #+#             */
-/*   Updated: 2020/12/01 14:44:28 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:28:37 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	if_extension(t_cub3d *cub3d, char *line, int i, int fd)
 		ft_error(DESC_WRONG_CHAR, line, cub3d);
 }
 
-void		file_processing(int fd, t_cub3d *cub3d)
+void	file_processing(int fd, t_cub3d *cub3d)
 {
 	int		gnl;
 	char	*line;
@@ -54,7 +54,7 @@ void		file_processing(int fd, t_cub3d *cub3d)
 		if_extension(cub3d, line, i, fd);
 		my_free(line);
 		gnl = get_next_line(fd, &line);
-	}	
+	}
 	if (gnl < 0)
 		ft_error(DESC_GNL, "file processing", cub3d);
 }

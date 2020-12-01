@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 05:10:17 by marina            #+#    #+#             */
-/*   Updated: 2020/11/30 13:21:28 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:30:37 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ void		fp_west(t_cub3d *cub3d, char *line, int i)
 	my_free(path);
 }
 
-void	get_path(char *path, int *i, char *line, int max)
+void		get_path(char *path, int *i, char *line, int max)
 {
 	int	size;
 

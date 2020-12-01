@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:22:30 by marina            #+#    #+#             */
-/*   Updated: 2020/11/30 13:29:11 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:30:17 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		gnl_to_chain(int fd, t_fp_map **begins, char *line, t_cub3d *cub3d)
 	int			gnl;
 	int			size;
 	t_fp_map	*map;
-	
+
 	map = *begins;
 	size = 1;
 	map->line = ft_strdup(line);

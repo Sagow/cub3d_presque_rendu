@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 13:10:42 by marina            #+#    #+#             */
-/*   Updated: 2020/11/27 13:13:10 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/01 17:26:49 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	draw_col(t_cub3d *cub3d, t_case wall, int i)
 	}
 }
 
-t_text 	*get_text(t_case wall, t_cub3d *cub3d)
+t_text	*get_text(t_case wall, t_cub3d *cub3d)
 {
 	if (wall.wall == 'N')
 		return (&cub3d->north);
