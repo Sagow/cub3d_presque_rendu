@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 16:34:43 by marina            #+#    #+#             */
-/*   Updated: 2020/12/01 17:27:41 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/02 22:43:06 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	draw_or_not(double rad, t_cub3d *cub3d, int i, double ray)
 	double		h;
 
 	h = (cub3d->height / 2) - ((cub3d->width / 2 - cub3d->fov / 2) /
-	(cub3d->sprite->data.dist));
+	(cub3d->sprite->data.dist * cos(rad)));
 	if ((sin(rad) * cub3d->sprite->data.dist <= 0.5) &&
 	(sin(rad) * cub3d->sprite->data.dist >= -0.5))
 	{
@@ -58,6 +58,7 @@ void	draw_sprites(t_cub3d *cub3d, double ray, int i)
 
 	rad = atan2(cub3d->sprite->data.p.y - cub3d->player.p.y,
 	cub3d->sprite->data.p.x - cub3d->player.p.x) - dtor(ray);
+	//rad = dtor(simplifier(cub3d->player.ang + 180));
 	cub3d->sprite->data.dist = cub3d->sprite->data.dist / cos(rad);
 	draw_or_not(rad, cub3d, i, ray);
 	bin = cub3d->sprite;

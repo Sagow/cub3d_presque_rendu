@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/05 17:52:50 by marina            #+#    #+#             */
-/*   Updated: 2020/12/01 17:34:40 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/02 23:17:36 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "../libftprintf/printf.h"
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "mlx.h"
-# include "mlx_int.h"
+# include "../minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx_int.h"
 # ifndef M_PI
 #  define M_PI 3.1415
 # endif

@@ -23,11 +23,12 @@ SRCS		=	file_processing/file_processing.c	\
 				get_next_line/get_next_line_utils.c
 INCLUDES	=	-Iget_next_line						\
 				-Ilibftprintf						\
+				-Iminilibx-linux					\
 				-Iincludes
 OBJS		=	${SRCS:.c=.o}
 CC			=	clang
 FLAGS		=	-Wall -Werror -Wextra ${INCLUDES} -D BUFFER_SIZE=4096
-LIBS		=	-lXext -lbsd -lmlx -lX11 -lm
+LIBS		=	-lXext -lbsd -lmlx -lX11 -lm -O3
 NAME		=	cub3d
 RM			=	rm -f
 
@@ -35,9 +36,10 @@ RM			=	rm -f
 			${CC} -c $< -o ${<:.c=.o} ${FLAGS}
 
 $(NAME) :	${OBJS}
+			make -C minilibx-linux -f Makefile
 			make -C libftprintf -f Makefile
-			mv libftprintf/libftprintf.a .
-			${CC} ${OBJS} ${FLAGS} ${LIBS} -L. libftprintf.a -g -o ${NAME} -fsanitize=address
+			${CC} ${OBJS} ${FLAGS} ${LIBS} -L. libftprintf/libftprintf.a \
+			minilibx-linux/libmlx.a minilibx-linux/libmlx_Linux.a -g -o ${NAME}
 
 all :		${NAME}
 
@@ -45,10 +47,11 @@ bonus :		all
 
 clean :
 			make clean -C libftprintf -f Makefile
+			make clean -C minilibx-linux -f Makefile
 			${RM} ${OBJS}
-			${RM} libftprintf.a
 
 fclean :	clean
+			make fclean -C libftprintf -f Makefile
 			${RM} ${NAME}
 
 re:			fclean all
