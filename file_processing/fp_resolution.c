@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 05:45:43 by marina            #+#    #+#             */
-/*   Updated: 2020/11/30 13:19:30 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/02 20:49:40 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int			get_value(char *line, int *i, int value)
 		test = test * 10 + (int)(line[*i] - '0');
 		*i = *i + 1;
 	}
-	if (test > value)
+	if (test > value && value > 0)
 		return (value);
 	return (test);
 }
@@ -32,9 +32,12 @@ void		fp_resolution(t_cub3d *cub3d, char *line, int i)
 	int		w;
 	int		h;
 
+	w = -1;
+	h = -1;
 	if (cub3d->width || cub3d->height)
 		ft_error(DESC_ALREADY, "resolution", cub3d);
-	mlx_get_screen_size(cub3d->mlx, &w, &h);
+	if (!cub3d->save)
+		mlx_get_screen_size(cub3d->mlx, &w, &h);
 	if ((i = space(line, i)) == -1)
 		ft_error(DESC_INCOMP, "resolution", cub3d);
 	w = get_value(line, &i, w);

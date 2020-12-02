@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/25 19:53:30 by marina            #+#    #+#             */
-/*   Updated: 2020/12/01 14:47:35 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/02 20:54:55 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,10 @@ void	update(t_cub3d *cub3d)
 			draw_sprites(cub3d, ray, i);
 		i++;
 	}
-	mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img, 0, 0);
+	if (cub3d->save)
+		save(cub3d);
+	else
+		mlx_put_image_to_window(cub3d->mlx, cub3d->win, cub3d->img, 0, 0);
 }
 
 int		key_press(int key_pressed, t_cub3d *cub3d)
@@ -107,17 +110,19 @@ int		main(int argc, char **argv)
 		ft_error(OPEN_FAIL, argv[1], &cub3d);
 	cub3d.mlx = mlx_init();
 	file_processing(fd, &cub3d);
-	cub3d.win = mlx_new_window(cub3d.mlx, cub3d.width, cub3d.height, "Cub3d");
+	if (!cub3d.save)
+		cub3d.win = mlx_new_window(cub3d.mlx, cub3d.width, cub3d.height, "Cub3d");
 	cub3d.img = mlx_new_image(cub3d.mlx, cub3d.width, cub3d.height);
 	cub3d.draw = (t_pixel *)mlx_get_data_addr(cub3d.img, &t, &t, &t);
 	if (!(cub3d.distances = malloc(sizeof(double) * cub3d.width)))
 		return (-1);
-	mlx_hook(cub3d.win, 2, (1L << 0), &key_press, &cub3d);
-	mlx_hook(cub3d.win, 17, 1L << 17, click, &cub3d);
 	update(&cub3d);
-	if (cub3d.save)
-		save(&cub3d);
-	mlx_put_image_to_window(cub3d.mlx, cub3d.win, cub3d.img, 0, 0);
+	if (!cub3d.save)
+	{
+		mlx_hook(cub3d.win, 2, (1L << 0), &key_press, &cub3d);
+		mlx_hook(cub3d.win, 17, 1L << 17, click, &cub3d);
+		mlx_put_image_to_window(cub3d.mlx, cub3d.win, cub3d.img, 0, 0);
+	}
 	mlx_loop(cub3d.mlx);
 	return (0);
 }

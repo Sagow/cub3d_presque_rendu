@@ -6,7 +6,7 @@
 /*   By: marina <marina@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 13:33:42 by marina            #+#    #+#             */
-/*   Updated: 2020/11/30 13:23:19 by marina           ###   ########.fr       */
+/*   Updated: 2020/12/02 20:35:27 by marina           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,5 @@ void			save(t_cub3d *cub3d)
 	image_information_data(fd, cub3d);
 	raw_pixel_data(fd, cub3d);
 	close(fd);
+	my_exit(cub3d);
 }
